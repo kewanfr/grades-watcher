@@ -1,6 +1,6 @@
 import config from "../config.js";
 
-export default function sendDiscordMessage(content, embeds) {
+export default function sendDiscordMessage(embeds, content = null, channel = 1) {
     var params = {
         username: "Notes IUT",
         avatar_url: config.discord.avatarURL,
@@ -29,7 +29,9 @@ export default function sendDiscordMessage(content, embeds) {
         params.embeds = embeds
     }
 
-    fetch(config.discord.webhookURL, {
+    // console.log(params)
+
+    fetch(config.discord.webhookURL[channel], {
         method: "POST",
         headers: {
             'Content-type': 'application/json'
