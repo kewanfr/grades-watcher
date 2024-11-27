@@ -6,7 +6,8 @@ dotenv.config();
 export default {
 
     webhookURL: "",
-    dataURL: "https://notes.iut-nantes.univ-nantes.fr/services/data.php?q=dataPremièreConnexion",
+    DATA_URL: "https://notes.iut-nantes.univ-nantes.fr/services/data.php?q=dataPremièreConnexion",
+    LOGIN_PAGE_URL: "https://notes.iut-nantes.univ-nantes.fr/services/doAuth.php?href=https%3A%2F%2Fnotes.iut-nantes.univ-nantes.fr%2F",
     dataPath: "./data/phpsession.json",
     HEADLESS: false,
     
