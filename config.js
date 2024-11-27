@@ -10,7 +10,10 @@ export default {
     LOGIN_PAGE_URL: "https://notes.iut-nantes.univ-nantes.fr/services/doAuth.php?href=https%3A%2F%2Fnotes.iut-nantes.univ-nantes.fr%2F",
 
     PHPSESSION_FILE: "./data/phpsession.json",
-    RELEVE_FILE: "./data/releve.json",
+    RELEVE_FILE: "./releves/releve.json",
+    LAST_RELEVE_FILE: "./releves/lastReleve.json",
+
+    OLD_RELEVE_FOLDER: "./releves/old/",
 
     HEADLESS: false,
     
