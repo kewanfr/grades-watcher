@@ -1,7 +1,8 @@
+import { saveReleve } from "./saveReleve.js";
 
 
 export async function parseReleve(dataReleve) {
-    console.log(dataReleve);
+    // console.log(dataReleve);
 
     var res = {};
 
@@ -28,7 +29,7 @@ export async function parseReleve(dataReleve) {
                 noteMin: val.note.min,
                 noteMax: val.note.max,
                 moy: val.note.moy,
-                coef: val.note.coef,
+                // coef: val.note.coef,
                 poids: val.poids,
             });
         }
@@ -40,6 +41,8 @@ export async function parseReleve(dataReleve) {
             notes: notes,
         }
     }
+
+    // await saveReleve(res);
 
     return res;
 
