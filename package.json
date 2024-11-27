@@ -1,5 +1,5 @@
 {
-  "name": "notes-watch",
+  "name": "grades-watcher",
   "version": "1.0.0",
   "description": "A simple tool that watches for new notes on my school site",
   "main": "index.js",
