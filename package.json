@@ -1,0 +1,16 @@
+{
+  "name": "notes-watch",
+  "version": "1.0.0",
+  "description": "A simple tool that watches for new notes on my school site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "kewanb",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "puppeteer": "^23.9.0"
+  }
+}
