@@ -3,7 +3,7 @@ import fs from "fs";
 import config from "../config.js";
 
 export default async function getPHPSession(refresh = false) {
-  const path = config.PHPSESSION_PAGE;
+  const path = config.PHPSESSION_FILE;
 
   // If folder of path doesn't exist, create it.
   if (!fs.existsSync("./data")) {
