@@ -1,15 +1,19 @@
 import fs from 'fs';
 import config from '../config.js';
 
-export async function compareReleve(releve) {
+export async function compareReleve(releve, oldReleve = null) {
 
-    const oldReleveStr = await fs.readFileSync(config.RELEVE_FILE, 'utf8');
-    var oldReleve = null;
-    try {
-        oldReleve = JSON.parse(oldReleveStr);
-    } catch (error) {
-        console.error("Error parsing releve file", error);
-        return false;
+    if (oldReleve == null) {
+
+        const oldReleveStr = await fs.readFileSync(config.RELEVE_FILE, 'utf8');
+
+        try {
+            oldReleve = JSON.parse(oldReleveStr);
+        } catch (error) {
+            console.error("Error parsing releve file", error);
+            return false;
+        }
+
     }
 
     if (oldReleve === releve) {
