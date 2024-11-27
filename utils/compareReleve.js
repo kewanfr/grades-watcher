@@ -5,6 +5,10 @@ export async function compareReleve(releve, oldReleve = null) {
 
     if (oldReleve == null) {
 
+        if (!fs.existsSync(config.RELEVE_FILE)){
+            return false
+        }
+
         const oldReleveStr = await fs.readFileSync(config.RELEVE_FILE, 'utf8');
 
         try {
@@ -16,14 +20,15 @@ export async function compareReleve(releve, oldReleve = null) {
 
     }
 
-    if (oldReleve === releve) {
-        return false;
-    }
-
     var diff = [];
     
+    if (oldReleve === releve) {
+        return diff;
+    }
+
+    
     for (const R in releve.ressources) {
-        console.log(R);
+        // console.log(R);
         const ressource = releve.ressources[R];
         const oldRessource = oldReleve.ressources[R];
         if (oldRessource === ressource) {
@@ -37,8 +42,8 @@ export async function compareReleve(releve, oldReleve = null) {
             }
             
             if (note.note !== oldNote.note) {
-                console.log('note différente');
-                console.log(note, oldNote)
+                // console.log('note différente');
+                // console.log(note, oldNote)
 
                 diff.push({
                     ressource: R,

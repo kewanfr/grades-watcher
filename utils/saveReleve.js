@@ -11,7 +11,7 @@ export async function saveReleve(releve) {
 
     const comparaison = await compareReleve(releve);
 
-    if (comparaison.length == 0) return false
+    if (comparaison.length == 0 && Array.isArray(comparaison)) return false
 
     await fs.writeFileSync(filePath, JSON.stringify(releve, null, 2));
 
