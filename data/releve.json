@@ -1,0 +1,428 @@
+{
+  "summary": {
+    "moyenne": "14.86",
+    "min": "00.00",
+    "moy_promo": "11.42",
+    "max_promo": "16.87",
+    "rang": "9"
+  },
+  "ressources": {
+    "R1.02": {
+      "key": "R1.02",
+      "nom": "Dev. Interface Web",
+      "notes": [
+        {
+          "description": "TD",
+          "note": "18.00",
+          "noteMin": "00.00",
+          "noteMax": "20.00",
+          "moy": "09.39",
+          "poids": {
+            "UE1.1": 1,
+            "UE1.2": 0,
+            "UE1.3": 0,
+            "UE1.4": 0,
+            "UE1.5": 1,
+            "UE1.6": 1
+          }
+        },
+        {
+          "description": "TM",
+          "note": "18.00",
+          "noteMin": "00.00",
+          "noteMax": "20.00",
+          "moy": "16.30",
+          "poids": {
+            "UE1.1": 1,
+            "UE1.2": 0,
+            "UE1.3": 0,
+            "UE1.4": 0,
+            "UE1.5": 1,
+            "UE1.6": 1
+          }
+        }
+      ]
+    },
+    "R1.03": {
+      "key": "R1.03",
+      "nom": "Intro Architecture ordinateurs",
+      "notes": [
+        {
+          "description": "TP",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 1,
+            "UE1.3": 1,
+            "UE1.4": 0,
+            "UE1.5": 0,
+            "UE1.6": 0
+          }
+        },
+        {
+          "description": "DS",
+          "note": "12.50",
+          "noteMin": "03.50",
+          "noteMax": "19.00",
+          "moy": "11.52",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 1,
+            "UE1.3": 1,
+            "UE1.4": 0,
+            "UE1.5": 0,
+            "UE1.6": 0
+          }
+        }
+      ]
+    },
+    "R1.04": {
+      "key": "R1.04",
+      "nom": "Introduction Systèmes d'expl.",
+      "notes": [
+        {
+          "description": "TP",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 0,
+            "UE1.3": 1,
+            "UE1.4": 0,
+            "UE1.5": 0,
+            "UE1.6": 0
+          }
+        },
+        {
+          "description": "DS",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 0,
+            "UE1.3": 1,
+            "UE1.4": 0,
+            "UE1.5": 0,
+            "UE1.6": 0
+          }
+        }
+      ]
+    },
+    "R1.05": {
+      "key": "R1.05",
+      "nom": "Introduction BD+SQL",
+      "notes": [
+        {
+          "description": "TM",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 0,
+            "UE1.3": 0,
+            "UE1.4": 1,
+            "UE1.5": 0,
+            "UE1.6": 0
+          }
+        },
+        {
+          "description": "TD",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 0,
+            "UE1.3": 0,
+            "UE1.4": 1,
+            "UE1.5": 0,
+            "UE1.6": 0
+          }
+        }
+      ]
+    },
+    "R1.06": {
+      "key": "R1.06",
+      "nom": "Maths discrètes",
+      "notes": [
+        {
+          "description": "Note TD",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 1,
+            "UE1.3": 0,
+            "UE1.4": 1,
+            "UE1.5": 0,
+            "UE1.6": 0
+          }
+        },
+        {
+          "description": "Note DS final",
+          "note": "13.50",
+          "noteMin": "00.25",
+          "noteMax": "19.25",
+          "moy": "08.51",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 1,
+            "UE1.3": 0,
+            "UE1.4": 1,
+            "UE1.5": 0,
+            "UE1.6": 0
+          }
+        }
+      ]
+    },
+    "R1.07": {
+      "key": "R1.07",
+      "nom": "Outils mathématiques fondamentaux",
+      "notes": [
+        {
+          "description": "Examen final",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 1,
+            "UE1.3": 0,
+            "UE1.4": 0,
+            "UE1.5": 0,
+            "UE1.6": 0
+          }
+        }
+      ]
+    },
+    "R1.08": {
+      "key": "R1.08",
+      "nom": "GPO",
+      "notes": [
+        {
+          "description": "",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 0,
+            "UE1.3": 0,
+            "UE1.4": 0,
+            "UE1.5": 1,
+            "UE1.6": 1
+          }
+        },
+        {
+          "description": "",
+          "note": "14.00",
+          "noteMin": "04.00",
+          "noteMax": "19.00",
+          "moy": "13.42",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 0,
+            "UE1.3": 0,
+            "UE1.4": 0,
+            "UE1.5": 1,
+            "UE1.6": 1
+          }
+        }
+      ]
+    },
+    "R1.09": {
+      "key": "R1.09",
+      "nom": "Economie  dura. numé.",
+      "notes": [
+        {
+          "description": "TD",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 0,
+            "UE1.3": 0,
+            "UE1.4": 1,
+            "UE1.5": 0,
+            "UE1.6": 1
+          }
+        },
+        {
+          "description": "DS",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 0,
+            "UE1.3": 0,
+            "UE1.4": 1,
+            "UE1.5": 0,
+            "UE1.6": 1
+          }
+        }
+      ]
+    },
+    "R1.10": {
+      "key": "R1.10",
+      "nom": "Anglais Tech",
+      "notes": [
+        {
+          "description": "oral",
+          "note": "15.00",
+          "noteMin": "08.00",
+          "noteMax": "20.00",
+          "moy": "13.99",
+          "poids": {
+            "UE1.1": 1,
+            "UE1.2": 0,
+            "UE1.3": 1,
+            "UE1.4": 0,
+            "UE1.5": 0,
+            "UE1.6": 1
+          }
+        },
+        {
+          "description": "",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 1,
+            "UE1.2": 0,
+            "UE1.3": 1,
+            "UE1.4": 0,
+            "UE1.5": 0,
+            "UE1.6": 1
+          }
+        }
+      ]
+    },
+    "R1.11": {
+      "key": "R1.11",
+      "nom": "Bases Communication",
+      "notes": [
+        {
+          "description": "TD2",
+          "note": "19.00",
+          "noteMin": "04.00",
+          "noteMax": "20.00",
+          "moy": "13.36",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 0,
+            "UE1.3": 1,
+            "UE1.4": 0,
+            "UE1.5": 1,
+            "UE1.6": 1
+          }
+        },
+        {
+          "description": "TD1",
+          "note": "15.50",
+          "noteMin": "02.50",
+          "noteMax": "19.00",
+          "moy": "09.78",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 0,
+            "UE1.3": 1,
+            "UE1.4": 0,
+            "UE1.5": 1,
+            "UE1.6": 1
+          }
+        },
+        {
+          "description": "TD3 (oral)",
+          "note": "13.50",
+          "noteMin": "00.00",
+          "noteMax": "16.50",
+          "moy": "13.72",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 0,
+            "UE1.3": 1,
+            "UE1.4": 0,
+            "UE1.5": 1,
+            "UE1.6": 1
+          }
+        }
+      ]
+    },
+    "R1.12": {
+      "key": "R1.12",
+      "nom": "PPP",
+      "notes": [
+        {
+          "description": "TD",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 0,
+            "UE1.2": 0,
+            "UE1.3": 0,
+            "UE1.4": 0,
+            "UE1.5": 0,
+            "UE1.6": 1
+          }
+        }
+      ]
+    },
+    "R1.01": {
+      "key": "R1.01",
+      "nom": "Initiation Dev",
+      "notes": [
+        {
+          "description": "DS (tests sur machine)",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 1,
+            "UE1.2": 1,
+            "UE1.3": 0,
+            "UE1.4": 0,
+            "UE1.5": 0,
+            "UE1.6": 0
+          }
+        },
+        {
+          "description": "TD (projet final)",
+          "note": "~",
+          "noteMin": "~",
+          "noteMax": "~",
+          "moy": "~",
+          "poids": {
+            "UE1.1": 1,
+            "UE1.2": 1,
+            "UE1.3": 0,
+            "UE1.4": 0,
+            "UE1.5": 0,
+            "UE1.6": 0
+          }
+        }
+      ]
+    }
+  }
+}
