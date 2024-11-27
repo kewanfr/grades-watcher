@@ -2,7 +2,10 @@ import { saveReleve } from "./saveReleve.js";
 
 
 export async function parseReleve(dataReleve) {
-    // console.log(dataReleve);
+
+    if (dataReleve["relevé"]){
+        dataReleve = dataReleve["relevé"]
+    }
 
     var res = {};
 
