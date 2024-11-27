@@ -17,20 +17,18 @@ if (!fs.existsSync("./data")) {
 }
 
 async function main() {
-  // const data = await fetchData();
+  const data = await fetchData();
 
-  // await fs.writeFileSync("./data/data.json", JSON.stringify(data))
+//   // await fs.writeFileSync("./data/data.json", JSON.stringify(data))
 
-  const data = JSON.parse(await fs.readFileSync("./data/data.json"));
+//   const data = JSON.parse(await fs.readFileSync("./data/data.json"));
 
-  // console.log(data);
 
   const parsed = await parseReleve(data);
   const resultSave = await saveReleve(parsed);
 
   if (!fs.existsSync(config.LAST_RELEVE_FILE)) return true;
-  // if (fs.existsSync(config.LAST_RELEVE_FILE)) {
-  // return true
+
   const lastReleveData = await fs.readFileSync(
     config.LAST_RELEVE_FILE,
     "utf-8"
@@ -104,19 +102,6 @@ async function main() {
     }
   }
 
-  // }
 }
 
 main();
-
-// const dataReleve = await fs.readFileSync("./data/data.json", 'utf8');
-// const dataReleveNew = await fs.readFileSync("./data/dataNew.json", 'utf8');
-
-// const parsed = await parseReleve(JSON.parse(dataReleve));
-// const parsedNew = await parseReleve(JSON.parse(dataReleveNew));
-
-// await saveReleve(parsed);
-
-// console.log(await compareReleve(parsedNew));
-
-// console.log(JSON.stringify(parsed, null, 2));
