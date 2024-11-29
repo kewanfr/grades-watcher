@@ -89,3 +89,6 @@ async function watchForNote() {
   }
 }
 
+setInterval(() => {
+  watchForNote();
+}, 1000);
