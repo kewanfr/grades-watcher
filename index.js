@@ -91,4 +91,4 @@ async function watchForNote() {
 
 setInterval(() => {
   watchForNote();
-}, 1000);
+}, config.REFRESH_INTERVAL);
