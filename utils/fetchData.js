@@ -13,24 +13,29 @@ export default async function fetchData() {
 
     const URL = config.DATA_URL;
 
-    const response = await fetch(URL, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Cookie': `PHPSESSID=${PHPSESSID}`
+    try {
+        const response = await fetch(URL, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Cookie': `PHPSESSID=${PHPSESSID}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    });
-
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+    
+        const data = await response.json();
+    
+        if (data.redirect) {
+            PHPSESSID = await getPHPSession(REFRESH_PHPSESSION);
+            return await fetchData();   
+        }
+    
+        return data;
+    } catch (error) {
+        console.error(error);
+        return false;
     }
-
-    const data = await response.json();
-
-    if (data.redirect) {
-        PHPSESSID = await getPHPSession(REFRESH_PHPSESSION);
-        return await fetchData();   
-    }
-
-    return data;
 }
