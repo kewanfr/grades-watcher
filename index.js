@@ -89,6 +89,7 @@ async function watchForNote() {
   }
 }
 
+watchForNote();
 setInterval(() => {
   watchForNote();
 }, config.REFRESH_INTERVAL);
