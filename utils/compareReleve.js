@@ -9,7 +9,10 @@ export async function compareReleve(releve, oldReleve = null) {
             return false
         }
 
-        const oldReleveStr = await fs.readFileSync(config.RELEVE_FILE, 'utf8');
+        const oldReleveStr = await fs.readFileSync(
+          config.LAST_RELEVE_FILE,
+          "utf8"
+        );
 
         try {
             oldReleve = JSON.parse(oldReleveStr);
@@ -23,9 +26,8 @@ export async function compareReleve(releve, oldReleve = null) {
     var diff = [];
     
     if (oldReleve === releve) {
-        return diff;
+      return diff;
     }
-
     
     for (const R in releve.ressources) {
         // console.log(R);
