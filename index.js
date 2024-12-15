@@ -54,22 +54,21 @@ async function watchForNote() {
       const embed = new EmbedBuilder()
         .setTitle(`Nouvelle note`)
         .setDescription(
-          `${nt.ressource} - ${nt.note.description} | **${nt.note.note}** \n` +
+          `${nt.ressource} - ${nt.note.description} | **${nt.note.note}** \n\n` +
             `Ma moyenne : ${summaryDiff.new.moyenne} ${
               summaryDiff.new.moyenne != summaryDiff.old.moyenne
                 ? summaryDiff.new.moyenne > summaryDiff.old.moyenne
                   ? `▲ (${summaryDiff.old.moyenne})`
                   : `▼ (${summaryDiff.old.moyenne})`
                 : ""
-            }
-          \n` +
+            }\n` +
             `Mon rang : #${summaryDiff.new.rang} ${
               summaryDiff.new.rang != summaryDiff.old.rang
                 ? summaryDiff.new.rang > summaryDiff.old.rang
                   ? `▲ (#${summaryDiff.old.rang})`
                   : `▼ (#${summaryDiff.old.rang})`
                 : ""
-            } \n\n` +
+            } \n\n\n` +
             `Moyenne de la promo : ${summaryDiff.new.moy_promo} ${
               summaryDiff.new.moy_promo != summaryDiff.old.moy_promo
                 ? summaryDiff.new.moy_promo > summaryDiff.old.moy_promo
