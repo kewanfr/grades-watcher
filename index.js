@@ -20,13 +20,9 @@ if (!fs.existsSync("./data")) {
 async function watchForNote() {
   const data = await fetchData();
 
-  if (!data) return false
-
+  if (!data) return false;
 
   const parsed = await parseReleve(data);
-  const resultSave = await saveReleve(parsed);
-
-  console.log(`resultSave`, resultSave);
 
   if (!fs.existsSync(config.LAST_RELEVE_FILE)) {
     console.log(`[${getTimeForLog()}] Aucune nouvelle note`);
@@ -34,16 +30,18 @@ async function watchForNote() {
     return true;
   }
 
-  const lastReleveData = await fs.readFileSync(
-    config.LAST_RELEVE_FILE,
-    "utf-8"
-  );
+  // const lastReleveData = await fs.readFileSync(
+  //   config.LAST_RELEVE_FILE,
+  //   "utf-8"
+  // );
   const releveData = await fs.readFileSync(config.RELEVE_FILE, "utf-8");
-  const releve = JSON.parse(releveData);
-  const oldReleve = JSON.parse(lastReleveData);
+  const releve = parsed;
+  const oldReleve = JSON.parse(releveData);
   const comparaison = await compareReleve(releve, oldReleve);
 
+  const resultSave = await saveReleve(parsed);
 
+  console.log(`resultSave`, resultSave);
 
   const summaryDiff = {
     new: releve.summary,
