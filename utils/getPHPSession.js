@@ -10,7 +10,6 @@ export default async function getPHPSession(refresh = false) {
     fs.mkdirSync("./data");
   }
 
-
   if (!refresh && fs.existsSync(path)) {
     const data = JSON.parse(fs.readFileSync(path));
       

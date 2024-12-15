@@ -37,14 +37,14 @@ async function watchForNote() {
     "utf-8"
   );
   const releveData = await fs.readFileSync(config.RELEVE_FILE, "utf-8");
-  const comparaison = await compareReleve(
+  const [comparaison, summaryDiff] = await compareReleve(
     JSON.parse(releveData),
     JSON.parse(lastReleveData)
   );
 
   if (comparaison.length == 0 || comparaison == false) {
     console.log(`[${getTimeForLog()}] Aucun nouvelle note`);
-    return false
+    return false;
   }
 
   console.log("comparaison", comparaison);
@@ -54,7 +54,22 @@ async function watchForNote() {
       const embed = new EmbedBuilder()
         .setTitle(`Nouvelle note`)
         .setDescription(
-          `${nt.ressource} - ${nt.note.description} | **${nt.note.note}**`
+          `${nt.ressource} - ${nt.note.description} | **${nt.note.note}** \n` +
+            `Ma moyenne : ${summaryDiff.new.moyenne} ${
+              summaryDiff.new.moyenne != summaryDiff.old.moyenne
+                ? summaryDiff.new.moyenne > summaryDiff.old.moyenne
+                  ? `▲ (${summaryDiff.old.moyenne})`
+                  : `▼ (${summaryDiff.old.moyenne})`
+                : ""
+            }
+          \n` +
+            `Mon rang : #${summaryDiff.new.rang} ${
+              summaryDiff.new.rang != summaryDiff.old.rang
+                ? summaryDiff.new.rang > summaryDiff.old.rang
+                  ? `▲ (#${summaryDiff.old.rang})`
+                  : `▼ (#${summaryDiff.old.rang})`
+                : ""
+            }`
         )
         .setColor(Colors.Blurple)
         .addFields(
@@ -64,13 +79,8 @@ async function watchForNote() {
             inline: false,
           },
           {
-            name: "Note Minimum",
-            value: nt.note.noteMin,
-            inline: true,
-          },
-          {
-            name: "Note Maximum",
-            value: nt.note.noteMax,
+            name: "Minimum / Maximum",
+            value: `${nt.note.noteMin} / ${nt.note.noteMax}`,
             inline: true,
           },
           {
@@ -84,7 +94,7 @@ async function watchForNote() {
 
       console.log("Nouvelle note", nt);
     } else {
-      console.log(`[${getTimeForLog()}] Aucun nouvelle note`)
+      console.log(`[${getTimeForLog()}] Aucun nouvelle note`);
     }
   }
 }
