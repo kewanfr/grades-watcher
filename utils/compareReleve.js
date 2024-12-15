@@ -55,7 +55,7 @@ export async function compareReleve(releve, oldReleve = null) {
         }
     }
 
-    const summaryDiff = {};
+    var summaryDiff = {};
 
     if (releve.summary !== oldReleve.summary) {
       summaryDiff = {
