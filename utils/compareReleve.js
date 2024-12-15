@@ -9,10 +9,7 @@ export async function compareReleve(releve, oldReleve = null) {
             return false
         }
 
-        const oldReleveStr = await fs.readFileSync(
-          config.LAST_RELEVE_FILE,
-          "utf8"
-        );
+        const oldReleveStr = await fs.readFileSync(config.RELEVE_FILE, "utf8");
 
         try {
             oldReleve = JSON.parse(oldReleveStr);

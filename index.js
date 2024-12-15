@@ -50,6 +50,8 @@ async function watchForNote() {
     old: oldReleve.summary,
   };
 
+  console.log("comparaison", comparaison);
+
   if (comparaison.length == 0 || comparaison == false) {
     console.log(`[${getTimeForLog()}] Aucun nouvelle note`);
     return false;
