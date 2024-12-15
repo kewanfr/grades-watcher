@@ -55,14 +55,5 @@ export async function compareReleve(releve, oldReleve = null) {
         }
     }
 
-    var summaryDiff = {};
-
-    if (releve.summary !== oldReleve.summary) {
-      summaryDiff = {
-        new: releve.summary,
-        old: oldReleve.summary,
-      };
-    }
-
-    return [diff, summaryDiff];
+    return diff;
 }

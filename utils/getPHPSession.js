@@ -18,8 +18,8 @@ export default async function getPHPSession(refresh = false) {
 
   const browser = await puppeteer.launch({
     // headless: config.HEADLESS,
-    args: ["--no-sandbox"],
-    executablePath: "/usr/bin/chromium-browser",
+    // args: ["--no-sandbox"],
+    // executablePath: "/usr/bin/chromium-browser",
   });
   const page = await browser.newPage();
 

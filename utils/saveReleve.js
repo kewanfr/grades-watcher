@@ -9,7 +9,7 @@ export async function saveReleve(releve) {
     const fileName = getTimeFileName() + ".txt";
     const filePath = path.join(config.OLD_RELEVE_FOLDER, fileName);
 
-    const [comparaison, summaryDiff] = await compareReleve(releve);
+    const comparaison = await compareReleve(releve);
 
     if (comparaison.length == 0 && Array.isArray(comparaison)) return false
 

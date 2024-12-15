@@ -37,10 +37,14 @@ async function watchForNote() {
     "utf-8"
   );
   const releveData = await fs.readFileSync(config.RELEVE_FILE, "utf-8");
-  const [comparaison, summaryDiff] = await compareReleve(
-    JSON.parse(releveData),
-    JSON.parse(lastReleveData)
-  );
+  const releve = JSON.parse(releveData);
+  const oldReleve = JSON.parse(lastReleveData);
+  const comparaison = await compareReleve(releve, oldReleve);
+
+  const summaryDiff = {
+    new: releve.summary,
+    old: oldReleve.summary,
+  };
 
   if (comparaison.length == 0 || comparaison == false) {
     console.log(`[${getTimeForLog()}] Aucun nouvelle note`);
