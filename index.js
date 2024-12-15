@@ -26,15 +26,10 @@ async function watchForNote() {
   const parsed = await parseReleve(data);
   const resultSave = await saveReleve(parsed);
 
-  if (!resultSave) {
-    console.log(`[${getTimeForLog()}] Aucun nouvelle note`);
-    return false;
-  }
-
   console.log(`resultSave`, resultSave);
 
   if (!fs.existsSync(config.LAST_RELEVE_FILE)) {
-    console.log(`[${getTimeForLog()}] Aucun nouvelle note`);
+    console.log(`[${getTimeForLog()}] Aucune nouvelle note`);
 
     return true;
   }
