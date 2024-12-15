@@ -69,7 +69,14 @@ async function watchForNote() {
                   ? `▲ (#${summaryDiff.old.rang})`
                   : `▼ (#${summaryDiff.old.rang})`
                 : ""
-            }`
+            } \n\n` +
+            `Moyenne de la promo : ${summaryDiff.new.moy_promo} ${
+              summaryDiff.new.moy_promo != summaryDiff.old.moy_promo
+                ? summaryDiff.new.moy_promo > summary.old.moy_promo
+                  ? `▲ (${summary.old.moy_promo})`
+                  : `▼ (${summaryDiff.old.moy_promo})`
+                : ""
+            } \n`
         )
         .setColor(Colors.Blurple)
         .addFields(
