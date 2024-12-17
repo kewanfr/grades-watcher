@@ -51,7 +51,7 @@ async function watchForNote() {
   console.log("comparaison", comparaison);
 
   if (comparaison.length == 0 || comparaison == false) {
-    console.log(`[${getTimeForLog()}] Aucun nouvelle note`);
+    console.log(`[${getTimeForLog()}] Aucune nouvelle note`);
     return false;
   }
 
@@ -113,7 +113,7 @@ async function watchForNote() {
 
       console.log("Nouvelle note", nt);
     } else {
-      console.log(`[${getTimeForLog()}] Aucun nouvelle note`);
+      console.log(`[${getTimeForLog()}] Aucune nouvelle note`);
     }
   }
 }
