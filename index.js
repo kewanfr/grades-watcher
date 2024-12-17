@@ -102,7 +102,12 @@ async function watchForNote() {
             value: nt.note.moy,
             inline: true,
           }
-        );
+      )
+        .setFooter({
+          text: `Lien vers le site : ${config.LOGIN_PAGE_URL}`
+        });
+      
+      
 
       await sendDiscordMessage([embed], null, 1);
 
