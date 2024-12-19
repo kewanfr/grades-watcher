@@ -6,7 +6,7 @@ import { parseReleve } from "./utils/parseReleve.js";
 import fs from "fs";
 import { saveReleve } from "./utils/saveReleve.js";
 import sendDiscordMessage from "./discord/sendMessage.js";
-import { Colors, EmbedBuilder } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, Colors, EmbedBuilder, userMention } from "discord.js";
 import { getTimeForLog } from "./utils/functions.js";
 
 if (!fs.existsSync("./releves/old")) {
@@ -63,27 +63,24 @@ async function watchForNote() {
         .setTitle(`Nouvelle note`)
         .setDescription(
           `${nt.ressource} - ${nt.note.description} | **${nt.note.note}** \n\n` +
-            `Ma moyenne : ${summaryDiff.new.moyenne} ${
-              summaryDiff.new.moyenne != summaryDiff.old.moyenne
-                ? summaryDiff.new.moyenne > summaryDiff.old.moyenne
-                  ? `▲ (${summaryDiff.old.moyenne})`
-                  : `▼ (${summaryDiff.old.moyenne})`
-                : ""
-            }\n` +
-            `Mon rang : #${summaryDiff.new.rang} ${
-              summaryDiff.new.rang != summaryDiff.old.rang
-                ? summaryDiff.new.rang > summaryDiff.old.rang
-                  ? `▲ (#${summaryDiff.old.rang})`
-                  : `▼ (#${summaryDiff.old.rang})`
-                : ""
-            } \n\n\n` +
-            `Moyenne de la promo : ${summaryDiff.new.moy_promo} ${
-              summaryDiff.new.moy_promo != summaryDiff.old.moy_promo
-                ? summaryDiff.new.moy_promo > summaryDiff.old.moy_promo
-                  ? `▲ (${summaryDiff.old.moy_promo})`
-                  : `▼ (${summaryDiff.old.moy_promo})`
-                : ""
-            } \n`
+          `Ma moyenne : ${summaryDiff.new.moyenne} ${summaryDiff.new.moyenne != summaryDiff.old.moyenne
+            ? summaryDiff.new.moyenne > summaryDiff.old.moyenne
+              ? `▲ (${summaryDiff.old.moyenne})`
+              : `▼ (${summaryDiff.old.moyenne})`
+            : ""
+          }\n` +
+          `Mon rang : #${summaryDiff.new.rang} ${summaryDiff.new.rang != summaryDiff.old.rang
+            ? summaryDiff.new.rang > summaryDiff.old.rang
+              ? `▲ (#${summaryDiff.old.rang})`
+              : `▼ (#${summaryDiff.old.rang})`
+            : ""
+          } \n\n\n` +
+          `Moyenne de la promo : ${summaryDiff.new.moy_promo} ${summaryDiff.new.moy_promo != summaryDiff.old.moy_promo
+            ? summaryDiff.new.moy_promo > summaryDiff.old.moy_promo
+              ? `▲ (${summaryDiff.old.moy_promo})`
+              : `▼ (${summaryDiff.old.moy_promo})`
+            : ""
+          } \n`
         )
         .setColor(Colors.Blurple)
         .addFields(
@@ -102,14 +99,44 @@ async function watchForNote() {
             value: nt.note.moy,
             inline: true,
           }
-      )
-        .setFooter({
-          text: `Lien vers le site : ${config.LOGIN_PAGE_URL}`
-        });
+      );
       
+      const loginPageButton = new ButtonBuilder()
+        .setURL(config.LOGIN_PAGE_URL)
+        .setLabel("Accès aux notes")
+        .setStyle(ButtonStyle.Link);
+      
+      const row = new ActionRowBuilder().addComponents(loginPageButton);
+      
+      // Message pour toute la classe
+      const embedGlobal = new EmbedBuilder()
+        .setTitle(`Nouvelle note`)
+        .setDescription(
+          `${nt.ressource} - ${nt.note.description} \n\n` +
+          `Moyenne de la promo : ${summaryDiff.new.moy_promo} ${summaryDiff.new.moy_promo != summaryDiff.old.moy_promo
+            ? summaryDiff.new.moy_promo > summaryDiff.old.moy_promo
+              ? `▲ (${summaryDiff.old.moy_promo})`
+              : `▼ (${summaryDiff.old.moy_promo})`
+            : ""
+          } \n`
+        )
+        .setColor(Colors.Blurple)
+        .addFields(
+          {
+            name: "Minimum / Maximum",
+            value: `${nt.note.noteMin} / ${nt.note.noteMax}`,
+            inline: true,
+          },
+          {
+            name: "Moyenne",
+            value: nt.note.moy,
+            inline: true,
+          }
+        );
       
 
-      await sendDiscordMessage([embed], null, 1);
+      await sendDiscordMessage([embed], `${userMention("355402435893919754")}`, 1, [row]);
+      await sendDiscordMessage([embedGlobal], null, 2, [row]);
 
       console.log("Nouvelle note", nt);
     } else {
