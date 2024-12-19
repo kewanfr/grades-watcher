@@ -1,6 +1,6 @@
 import config from "../config.js";
 
-export default function sendDiscordMessage(embeds, content = null, channel = 1) {
+export default function sendDiscordMessage(embeds, content = null, channel = 1, components = null) {
     var params = {
         username: "Notes IUT",
         avatar_url: config.discord.avatarURL,
@@ -28,6 +28,14 @@ export default function sendDiscordMessage(embeds, content = null, channel = 1) 
     if (embeds) {
         params.embeds = embeds
     }
+
+    if (components) {
+        params.components = components
+    }
+
+    // console.log(JSON.stringify(params))
+
+    // console.log("Sending message to channel", params.components)
 
     // console.log(params)
 
