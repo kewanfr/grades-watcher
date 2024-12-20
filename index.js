@@ -101,12 +101,6 @@ async function watchForNote() {
           }
       );
       
-      const loginPageButton = new ButtonBuilder()
-        .setURL(config.LOGIN_PAGE_URL)
-        .setLabel("Accès aux notes")
-        .setStyle(ButtonStyle.Link);
-      
-      const row = new ActionRowBuilder().addComponents(loginPageButton);
       
       // Message pour toute la classe
       const embedGlobal = new EmbedBuilder()
@@ -135,8 +129,8 @@ async function watchForNote() {
         );
       
 
-      await sendDiscordMessage([embed], `${userMention("355402435893919754")} ${config.URL_SITE}`, 1, [row]);
-      await sendDiscordMessage([embedGlobal], `${config.URL_SITE}`, 2, [row]);
+      await sendDiscordMessage([embed], `${userMention("355402435893919754")} ${config.URL_SITE}`, 1);
+      await sendDiscordMessage([embedGlobal], `${config.URL_SITE}`, 2);
 
       console.log("Nouvelle note", nt);
     } else {
