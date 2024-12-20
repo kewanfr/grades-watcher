@@ -135,8 +135,8 @@ async function watchForNote() {
         );
       
 
-      await sendDiscordMessage([embed], `${userMention("355402435893919754")}`, 1, [row]);
-      await sendDiscordMessage([embedGlobal], null, 2, [row]);
+      await sendDiscordMessage([embed], `${userMention("355402435893919754")} ${config.URL_SITE}`, 1, [row]);
+      await sendDiscordMessage([embedGlobal], `${config.URL_SITE}`, 2, [row]);
 
       console.log("Nouvelle note", nt);
     } else {
