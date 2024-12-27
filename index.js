@@ -126,7 +126,9 @@ async function watchForNote() {
             value: nt.note.moy,
             inline: true,
           }
-        );
+      );
+      
+      // console.log("Nouvelle note", embedGlobal);
       
 
       await sendDiscordMessage([embed], `${userMention("355402435893919754")} ${config.URL_SITE}`, 1);

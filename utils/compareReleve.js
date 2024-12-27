@@ -54,5 +54,34 @@ export async function compareReleve(releve, oldReleve = null) {
         }
     }
 
+
+    for (const S in releve.saes) {
+        // console.log(R);
+        const sae = releve.saes[S];
+        const oldSae = oldReleve.saes ? oldReleve.saes[S] : sae;
+        if (oldSae === sae) {
+            continue;
+        }
+        for (const N in sae.notes) {
+            const note = sae.notes[N];
+            const oldNote = oldSae.notes[N];
+            if (oldNote === note) {
+                continue;
+            }
+            
+            if (note.note !== oldNote.note) {
+                // console.log('note différente');
+                // console.log(note, oldNote)
+
+                diff.push({
+                    ressource: S,
+                    index: N,
+                    note: note,
+                    oldNote: oldNote,
+                });
+            }
+        }
+    }
+
     return diff;
 }
