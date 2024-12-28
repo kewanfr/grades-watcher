@@ -6,8 +6,11 @@ import { parseReleve } from "./utils/parseReleve.js";
 import fs from "fs";
 import { saveReleve } from "./utils/saveReleve.js";
 import sendDiscordMessage from "./discord/sendMessage.js";
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, Colors, EmbedBuilder, userMention } from "discord.js";
+import { Colors, EmbedBuilder, userMention } from "discord.js";
 import { getTimeForLog } from "./utils/functions.js";
+import { generateChartBuffer } from "./utils/generateChart.js";
+import { sendDiscordFile } from "./discord/sendDiscordFile.js";
+import fetchNotesList from "./utils/fetchNotesList.js";
 
 if (!fs.existsSync("./releves/old")) {
   fs.mkdirSync("./releves/old", { recursive: true });
@@ -41,7 +44,7 @@ async function watchForNote() {
 
   const resultSave = await saveReleve(parsed);
 
-  console.log(`resultSave`, resultSave);
+  // console.log(`resultSave`, resultSave);
 
   const summaryDiff = {
     new: releve.summary,
@@ -129,12 +132,19 @@ async function watchForNote() {
       );
       
       // console.log("Nouvelle note", embedGlobal);
+
       
+      const filename = 'notes-histogram.png';
+      
+      const notesList = await fetchNotesList(nt.id);
+      // console.log("notesList", notesList);
+      const imageBuffer = await generateChartBuffer(notesList);
 
+      
       await sendDiscordMessage([embed], `${userMention("355402435893919754")} ${config.URL_SITE}`, 1);
-      await sendDiscordMessage([embedGlobal], `${config.URL_SITE}`, 2);
+      // await sendDiscordMessage([embedGlobal], `${config.URL_SITE}`, 2);
+      await sendDiscordFile(imageBuffer, 1, filename)
 
-      console.log("Nouvelle note", nt);
     } else {
       console.log(`[${getTimeForLog()}] Aucune nouvelle note`);
     }

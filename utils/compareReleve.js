@@ -45,6 +45,7 @@ export async function compareReleve(releve, oldReleve = null) {
                 // console.log(note, oldNote)
 
                 diff.push({
+                    id: note.id,
                     ressource: R,
                     index: N,
                     note: note,
@@ -74,6 +75,7 @@ export async function compareReleve(releve, oldReleve = null) {
                 // console.log(note, oldNote)
 
                 diff.push({
+                    id: note.id,
                     ressource: S,
                     index: N,
                     note: note,

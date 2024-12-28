@@ -1,10 +1,11 @@
-import { saveReleve } from "./saveReleve.js";
+import fs from "fs";
 
 
 export async function parseReleve(dataReleve) {
 
 
     // console.log("dataReleve", JSON.stringify(dataReleve, null, 2));
+    await fs.writeFileSync("./dataAll.json", JSON.stringify(dataReleve, null, 2));
     if (dataReleve["relevé"]){
         dataReleve = dataReleve["relevé"]
     }
@@ -31,6 +32,7 @@ export async function parseReleve(dataReleve) {
         for (const [ke, val] of Object.entries(value.evaluations)) {
 
             notes.push({
+                id: val.id,
                 description: val.description,
                 note: val.note.value,
                 noteMin: val.note.min,
@@ -60,6 +62,7 @@ export async function parseReleve(dataReleve) {
         for (const [ke, val] of Object.entries(value.evaluations)) {
 
             notes.push({
+                id: val.id,
                 description: val.description,
                 note: val.note.value,
                 noteMin: val.note.min,
