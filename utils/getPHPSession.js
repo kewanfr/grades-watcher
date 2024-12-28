@@ -18,7 +18,7 @@ export default async function getPHPSession(refresh = false) {
 
   let browserParams = {}
 
-  if (!config.onProduction) {
+  if (config.onProduction) {
     browserParams = {
       // headless: config.HEADLESS,
       args: ["--no-sandbox"],
