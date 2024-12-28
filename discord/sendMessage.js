@@ -4,23 +4,6 @@ export default function sendDiscordMessage(embeds, content = null, channel = 1, 
     var params = {
         username: "Notes IUT",
         avatar_url: config.discord.avatarURL,
-        // content: "Some message you want to send",
-        // embeds: [
-        //     {
-        //         "title": "Some title",
-        //         "color": 15258703,
-        //         "thumbnail": {
-        //             "url": "",
-        //         },
-        //         "fields": [
-        //             {
-        //                 "name": "Your fields here",
-        //                 "value": "Whatever you wish to send",
-        //                 "inline": true
-        //             }
-        //         ]
-        //     }
-        // ],
     }
     if (content){
         params.content = content;
@@ -33,19 +16,17 @@ export default function sendDiscordMessage(embeds, content = null, channel = 1, 
         params.components = components
     }
 
-    // console.log(JSON.stringify(params))
-
-    // console.log("Sending message to channel", params.components)
-
-    // console.log(params)
-
     fetch(config.discord.webhookURL[channel], {
         method: "POST",
         headers: {
             'Content-type': 'application/json'
         },
         body: JSON.stringify(params)
-    }).then(res => {
-        console.log(res);
+    }).then(async res => {
+        if (!res.ok) {
+            const errText = await response.text().catch(() => '');
+            throw new Error(`Echec webhook Discord: ${response.status} - ${errText}`);
+        }
+        console.log("Message envoyé");
     })
 }
