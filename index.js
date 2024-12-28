@@ -142,8 +142,8 @@ async function watchForNote() {
 
       
       await sendDiscordMessage([embed], `${userMention("355402435893919754")} ${config.URL_SITE}`, 1);
-      // await sendDiscordMessage([embedGlobal], `${config.URL_SITE}`, 2);
-      await sendDiscordFile(imageBuffer, 1, filename)
+      await sendDiscordMessage([embedGlobal], `${config.URL_SITE}`, 2);
+      await sendDiscordFile(imageBuffer, 2, filename)
 
     } else {
       console.log(`[${getTimeForLog()}] Aucune nouvelle note`);
