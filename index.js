@@ -151,6 +151,7 @@ async function watchForNote() {
   }
 }
 
+
 watchForNote();
 setInterval(() => {
   watchForNote();

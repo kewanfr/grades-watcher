@@ -5,6 +5,8 @@ dotenv.config();
 
 export default {
 
+    onProduction: process.env.NODE_ENV === 'production',
+
     webhookURL: "",
     DATA_URL: "https://notes.iut-nantes.univ-nantes.fr/services/data.php?q=dataPremièreConnexion",
     NOTES_LIST_URL: "https://notes.iut-nantes.univ-nantes.fr/services/data.php?q=listeNotes&eval=",

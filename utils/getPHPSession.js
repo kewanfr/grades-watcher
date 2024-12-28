@@ -16,11 +16,17 @@ export default async function getPHPSession(refresh = false) {
     return data.PHPSESSID || false;
   }
 
-  const browser = await puppeteer.launch({
-    // headless: config.HEADLESS,
-    args: ["--no-sandbox"],
-    executablePath: "/usr/bin/chromium-browser",
-  });
+  let browserParams = {}
+
+  if (!config.onProduction) {
+    browserParams = {
+      // headless: config.HEADLESS,
+      args: ["--no-sandbox"],
+      executablePath: "/usr/bin/chromium-browser",
+    }
+  }
+
+  const browser = await puppeteer.launch(browserParams);
   const page = await browser.newPage();
 
   // Navigate to login page
