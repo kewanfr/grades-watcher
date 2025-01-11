@@ -30,7 +30,8 @@ export default {
         avatarURL: "https://yt3.googleusercontent.com/RNnAGLlbC2gUCLcMtxzRBeZq2YEchUFvzgPyV8AMkYos-V38ZugWGTglAgLQYqAPXVDj07bliQ=s900-c-k-c0x00ffffff-no-rj",
         webhookURL: {
             1: process.env.DISCORD_WEBHOOK_URL_1,
-            2: process.env.DISCORD_WEBHOOK_URL_2
+            2: process.env.DISCORD_WEBHOOK_URL_2,
+            3: process.env.DISCORD_WEBHOOK_URL_3
         }
     },
 
