@@ -47,6 +47,7 @@ export async function compareReleve(releve, oldReleve = null) {
                 diff.push({
                     id: note.id,
                     ressource: R,
+                    nom: releve.ressources[R].nom,
                     index: N,
                     note: note,
                     oldNote: oldNote,
@@ -77,6 +78,7 @@ export async function compareReleve(releve, oldReleve = null) {
                 diff.push({
                     id: note.id,
                     ressource: S,
+                    nom: releve.saes[S].nom,
                     index: N,
                     note: note,
                     oldNote: oldNote,
