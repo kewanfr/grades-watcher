@@ -23,6 +23,7 @@ if (!fs.existsSync("./data")) {
 async function watchForNote() {
   const data = await fetchData();
 
+
   if (!data) return false;
 
   const parsed = await parseReleve(data);
@@ -65,7 +66,7 @@ async function watchForNote() {
       const embed = new EmbedBuilder()
         .setTitle(`Nouvelle note`)
         .setDescription(
-          `${nt.ressource} - ${nt.note.description} | **${nt.note.note}** \n\n` +
+          `${nt.ressource} ${nt.nom}${nt.note.description != "" ? ` - ${nt.note.description}` : ""} | **${nt.note.note}** \n\n` +
           `Ma moyenne : ${summaryDiff.new.moyenne} ${summaryDiff.new.moyenne != summaryDiff.old.moyenne
             ? summaryDiff.new.moyenne > summaryDiff.old.moyenne
               ? `▲ (${summaryDiff.old.moyenne})`
@@ -77,7 +78,7 @@ async function watchForNote() {
               ? `▲ (#${summaryDiff.old.rang})`
               : `▼ (#${summaryDiff.old.rang})`
             : ""
-          } \n\n\n` +
+          } \n\n` +
           `Moyenne de la promo : ${summaryDiff.new.moy_promo} ${summaryDiff.new.moy_promo != summaryDiff.old.moy_promo
             ? summaryDiff.new.moy_promo > summaryDiff.old.moy_promo
               ? `▲ (${summaryDiff.old.moy_promo})`
@@ -105,11 +106,12 @@ async function watchForNote() {
       );
       
       
+
       // Message pour toute la classe
       const embedGlobal = new EmbedBuilder()
         .setTitle(`Nouvelle note`)
         .setDescription(
-          `${nt.ressource} - ${nt.note.description} \n\n` +
+          `${nt.ressource} ${nt.nom}${nt.note.description != "" ? ` - ${nt.note.description}` : ""} \n\n` +
           `Moyenne de la promo : ${summaryDiff.new.moy_promo} ${summaryDiff.new.moy_promo != summaryDiff.old.moy_promo
             ? summaryDiff.new.moy_promo > summaryDiff.old.moy_promo
               ? `▲ (${summaryDiff.old.moy_promo})`
