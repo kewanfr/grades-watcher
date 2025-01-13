@@ -4,7 +4,8 @@
   "description": "A simple tool that watches for new notes on my school site",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update": "git pull && pm2 restart GRADES && pm2 logs GRADES"
   },
   "type": "module",
   "author": "kewanb",
