@@ -37,7 +37,7 @@ export default {
         }
     },
 
-    REFRESH_INTERVAL: 1000*60*15 // 15 minutes (100ms * 60s * 15min)
+    REFRESH_INTERVAL: 1000*60*5 // 15 minutes (100ms * 60s * 15min)
 
 }
 
