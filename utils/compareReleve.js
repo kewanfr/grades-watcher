@@ -35,7 +35,7 @@ export async function compareReleve(releve, oldReleve = null) {
         }
         for (const N in ressource.notes) {
             const note = ressource.notes[N];
-            const oldNote = oldRessource.notes[N];
+            const oldNote = oldRessource ? oldRessource.notes[N] : note;
             if (oldNote === note) {
                 continue;
             }
