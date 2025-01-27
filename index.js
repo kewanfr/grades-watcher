@@ -20,10 +20,9 @@ if (!fs.existsSync("./data")) {
   fs.mkdirSync("./data");
 }
 
-async function watchForNote() {
-  const data = await fetchData();
-
-
+async function watchForNote(DATA_URL = config.DATA_URL) {
+  const data = await fetchData(DATA_URL);
+  
   if (!data) return false;
 
   const parsed = await parseReleve(data);
@@ -158,4 +157,5 @@ async function watchForNote() {
 watchForNote();
 setInterval(() => {
   watchForNote();
+  watchForNote(config.DATA_URL2);
 }, config.REFRESH_INTERVAL);

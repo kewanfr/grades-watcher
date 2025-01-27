@@ -3,15 +3,13 @@ import config from "../config.js";
 import getPHPSession from "./getPHPSession.js";
 const REFRESH_PHPSESSION = true;
 
-export default async function fetchData() {
+export default async function fetchData(URL = config.DATA_URL) {
 
     let PHPSESSID = await getPHPSession();
     if (!PHPSESSID) {
         PHPSESSID = await getPHPSession(REFRESH_PHPSESSION);
     }
 
-
-    const URL = config.DATA_URL;
 
     try {
         const response = await fetch(URL, {

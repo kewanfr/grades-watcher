@@ -8,7 +8,9 @@ export default {
     onProduction: process.env.NODE_ENV === 'production',
 
     webhookURL: "",
-    DATA_URL: "https://notes.iut-nantes.univ-nantes.fr/services/data.php?q=dataPremièreConnexion",
+    DATA_URL: "https://notes.iut-nantes.univ-nantes.fr/services/data.php?q=relev%C3%A9Etudiant&semestre=1021",
+    DATA_URL2: "https://notes.iut-nantes.univ-nantes.fr/services/data.php?q=relev%C3%A9Etudiant&semestre=1087",
+    // DATA_URL: "https://notes.iut-nantes.univ-nantes.fr/services/data.php?q=dataPremièreConnexion",
     NOTES_LIST_URL: "https://notes.iut-nantes.univ-nantes.fr/services/data.php?q=listeNotes&eval=",
     LOGIN_PAGE_URL: "https://notes.iut-nantes.univ-nantes.fr/services/doAuth.php?href=https%3A%2F%2Fnotes.iut-nantes.univ-nantes.fr%2F",
     URL_SITE: "https://notes.iut-nantes.univ-nantes.fr/",
