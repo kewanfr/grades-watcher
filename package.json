@@ -15,6 +15,7 @@
     "dotenv": "^16.4.5",
     "form-data": "^4.0.1",
     "node-fetch": "^3.3.2",
+    "nodemailer": "^6.10.0",
     "puppeteer": "^23.9.0",
     "quickchart-js": "^3.1.3"
   }

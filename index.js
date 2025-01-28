@@ -11,6 +11,7 @@ import { getTimeForLog } from "./utils/functions.js";
 import { generateChartBuffer } from "./utils/generateChart.js";
 import { sendDiscordFile } from "./discord/sendDiscordFile.js";
 import fetchNotesList from "./utils/fetchNotesList.js";
+import sendMail from "./utils/sendMail.js";
 
 if (!fs.existsSync("./releves/old")) {
   fs.mkdirSync("./releves/old", { recursive: true });
@@ -104,6 +105,29 @@ async function watchForNote(DATA_URL = config.DATA_URL) {
           }
       );
       
+      subject = `Nouvelle note : ${nt.ressource} ${nt.nom} - ${nt.note.note}`;
+      text = `${nt.ressource} ${nt.nom}${nt.note.description != "" ? ` - ${nt.note.description}` : ""} | **${nt.note.note}** \n\n` +
+        `Ma moyenne : ${summaryDiff.new.moyenne} ${summaryDiff.new.moyenne != summaryDiff.old.moyenne
+          ? summaryDiff.new.moyenne > summaryDiff.old.moyenne
+            ? `▲ (${summaryDiff.old.moyenne})`
+            : `▼ (${summaryDiff.old.moyenne})`
+          : ""
+        }\n` +
+        `Mon rang : #${summaryDiff.new.rang} ${summaryDiff.new.rang != summaryDiff.old.rang
+          ? summaryDiff.new.rang > summaryDiff.old.rang
+            ? `▲ (#${summaryDiff.old.rang})`
+            : `▼ (#${summaryDiff.old.rang})`
+          : ""
+        } \n\n` +
+        `Moyenne de la promo : ${summaryDiff.new.moy_promo} ${summaryDiff.new.moy_promo != summaryDiff.old.moy_promo
+          ? summaryDiff.new.moy_promo > summaryDiff.old.moy_promo
+            ? `▲ (${summaryDiff.old.moy_promo})`
+            : `▼ (${summaryDiff.old.moy_promo})`
+          : ""
+        } \n`;
+        
+
+      sendMail("mail@kewan.fr", subject, text);
       
 
       // Message pour toute la classe

@@ -66,7 +66,7 @@ export async function compareReleve(releve, oldReleve = null) {
         }
         for (const N in sae.notes) {
             const note = sae.notes[N];
-            const oldNote = oldSae.notes[N];
+            const oldNote = oldSae ? oldSae.notes[N] : note;
             if (oldNote === note) {
                 continue;
             }

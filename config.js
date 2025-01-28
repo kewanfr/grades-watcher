@@ -5,6 +5,7 @@ dotenv.config();
 
 export default {
 
+    GMAIL_CODE: process.env.GMAIL_CODE,
     onProduction: process.env.NODE_ENV === 'production',
 
     webhookURL: "",
