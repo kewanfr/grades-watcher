@@ -108,7 +108,7 @@ async function watchForNote(DATA_URL = config.DATA_URL) {
           }
       );
       
-      var subject = `[NOTE] ${nt.node.not} - ${nt.ressource} ${nt.nom}`;
+      var subject = `📚 [NOTE] ${nt.note.note} - ${nt.ressource} ${nt.nom}`;
       var html = `${nt.ressource} <b style="text-decoration: underline;">${nt.nom}${nt.note.description != "" ? ` - ${nt.note.description}` : ""}</b> => <b>x${nt.note.note}</b><br /><br />` +
         `Ma moyenne : ${summaryDiff.new.moyenne} ${summaryDiff.new.moyenne != summaryDiff.old.moyenne
           ? summaryDiff.new.moyenne > summaryDiff.old.moyenne
