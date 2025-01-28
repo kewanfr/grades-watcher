@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update": "git pull && pm2 restart GRADES && pm2 logs GRADES"
+    "update": "git pull && npm install && pm2 restart GRADES && pm2 logs GRADES"
   },
   "type": "module",
   "author": "kewanb",
