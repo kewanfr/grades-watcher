@@ -23,6 +23,9 @@ if (!fs.existsSync("./data")) {
 
 async function watchForNote(DATA_URL = config.DATA_URL) {
   const data = await fetchData(DATA_URL);
+
+
+  // return false
   
   if (!data) return false;
 
@@ -105,8 +108,8 @@ async function watchForNote(DATA_URL = config.DATA_URL) {
           }
       );
       
-      subject = `Nouvelle note : ${nt.ressource} ${nt.nom} - ${nt.note.note}`;
-      text = `${nt.ressource} ${nt.nom}${nt.note.description != "" ? ` - ${nt.note.description}` : ""} | **${nt.note.note}** \n\n` +
+      var subject = `Nouvelle note : ${nt.ressource} ${nt.nom} - ${nt.note.note}`;
+      var text = `${nt.ressource} ${nt.nom}${nt.note.description != "" ? ` - ${nt.note.description}` : ""} | **${nt.note.note}** \n\n` +
         `Ma moyenne : ${summaryDiff.new.moyenne} ${summaryDiff.new.moyenne != summaryDiff.old.moyenne
           ? summaryDiff.new.moyenne > summaryDiff.old.moyenne
             ? `▲ (${summaryDiff.old.moyenne})`
