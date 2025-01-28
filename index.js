@@ -24,7 +24,7 @@ if (!fs.existsSync("./data")) {
   fs.mkdirSync("./data");
 }
 
-async function watchForNote(DATA_URL = config.DATA_URL) {
+async function watchForNote(DATA_URL = config.DATA_URL, sendRes = false) {
   const data = await fetchData(DATA_URL);
 
 
@@ -62,10 +62,13 @@ async function watchForNote(DATA_URL = config.DATA_URL) {
 
   if (comparaison.length == 0 || comparaison == false) {
     console.log(`[${getTimeForLog()}] Aucune nouvelle note`);
+    if (sendRes) {
+      sendDiscordMessage([], `Aucune nouvelle note`, 3);
+    }
     return false;
   }
 
-  console.log("comparaison", comparaison);
+  // console.log("comparaison", comparaison);
 
   for (let nt of comparaison) {
     if (nt.oldNote.note == "~") {
@@ -171,13 +174,16 @@ async function watchForNote(DATA_URL = config.DATA_URL) {
       const imageBuffer = await generateChartBuffer(notesList);
 
       
-      await sendDiscordMessage([embed], `${userMention("355402435893919754")} ${config.URL_SITE}`, 1);
-      await sendDiscordMessage([embed], `${userMention("355402435893919754")} ${config.URL_SITE}`, 3);
-      await sendDiscordMessage([embedGlobal], `${config.URL_SITE}`, 2);
+      await sendDiscordMessage([embed], `${userMention("355402435893919754")} ${config.URL_SITE}`, 1); // Message for notes-test
+      await sendDiscordMessage([embed], `${userMention("355402435893919754")} ${config.URL_SITE}`, 3); // Message for down detector channel
+      await sendDiscordMessage([embedGlobal], `${config.URL_SITE}`, 2); // Message for all the class
       await sendDiscordFile(imageBuffer, 2, filename)
 
     } else {
       console.log(`[${getTimeForLog()}] Aucune nouvelle note`);
+      if (sendRes) {
+        sendDiscordMessage([], `Aucune nouvelle note`, 3);
+      }
     }
   }
 }
@@ -193,7 +199,12 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get('/update', (req, res) => {
-  watchForNote();
+  try {
+    watchForNote(config.DATA_URL, true);
+  } catch (error) {
+    console.error(error);
+    sendDiscordMessage([], `Erreur lors de la mise à jour manuelle : ${error}`, 3);
+  }
   console.log('Received Webhook:', req.body);
   res.status(200).send('OK');
 });

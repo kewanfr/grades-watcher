@@ -8,7 +8,7 @@ export default function sendDiscordMessage(embeds, content = null, channel = 1, 
     if (content){
         params.content = content;
     }
-    if (embeds) {
+    if (embeds && embeds.length > 0) {
         params.embeds = embeds
     }
 
