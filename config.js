@@ -8,6 +8,8 @@ export default {
     GMAIL_CODE: process.env.GMAIL_CODE,
     onProduction: process.env.NODE_ENV === 'production',
 
+    PORT: process.env.PORT || 3000,
+
     webhookURL: "",
     DATA_URL: "https://notes.iut-nantes.univ-nantes.fr/services/data.php?q=relev%C3%A9Etudiant&semestre=1021",
     DATA_URL2: "https://notes.iut-nantes.univ-nantes.fr/services/data.php?q=relev%C3%A9Etudiant&semestre=1087",

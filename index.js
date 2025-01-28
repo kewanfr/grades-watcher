@@ -13,6 +13,9 @@ import { sendDiscordFile } from "./discord/sendDiscordFile.js";
 import fetchNotesList from "./utils/fetchNotesList.js";
 import sendMail from "./utils/sendMail.js";
 
+import express from "express";
+import bodyParser from "body-parser";
+
 if (!fs.existsSync("./releves/old")) {
   fs.mkdirSync("./releves/old", { recursive: true });
 }
@@ -184,3 +187,19 @@ setInterval(() => {
   watchForNote();
   watchForNote(config.DATA_URL2);
 }, config.REFRESH_INTERVAL);
+
+const app = express();
+
+app.use(bodyParser.json());
+
+app.get('/update', (req, res) => {
+  watchForNote();
+  console.log('Received Webhook:', req.body);
+  res.status(200).send('OK');
+});
+
+const PORT = process.env.PORT || config.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Webhook receiver listening on port ${PORT}`);
+});

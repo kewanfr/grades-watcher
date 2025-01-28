@@ -11,8 +11,10 @@
   "author": "kewanb",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "discord.js": "^14.16.3",
     "dotenv": "^16.4.5",
+    "express": "^4.21.2",
     "form-data": "^4.0.1",
     "node-fetch": "^3.3.2",
     "nodemailer": "^6.10.0",
