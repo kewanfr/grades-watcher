@@ -108,29 +108,28 @@ async function watchForNote(DATA_URL = config.DATA_URL) {
           }
       );
       
-      var subject = `Nouvelle note : ${nt.ressource} ${nt.nom} - ${nt.note.note}`;
-      var text = `${nt.ressource} ${nt.nom}${nt.note.description != "" ? ` - ${nt.note.description}` : ""} | **${nt.note.note}** \n\n` +
+      var subject = `[NOTE] ${nt.node.not} - ${nt.ressource} ${nt.nom}`;
+      var html = `${nt.ressource} <b style="text-decoration: underline;">${nt.nom}${nt.note.description != "" ? ` - ${nt.note.description}` : ""}</b> => <b>x${nt.note.note}</b><br /><br />` +
         `Ma moyenne : ${summaryDiff.new.moyenne} ${summaryDiff.new.moyenne != summaryDiff.old.moyenne
           ? summaryDiff.new.moyenne > summaryDiff.old.moyenne
             ? `▲ (${summaryDiff.old.moyenne})`
             : `▼ (${summaryDiff.old.moyenne})`
           : ""
-        }\n` +
+        }<br />` +
         `Mon rang : #${summaryDiff.new.rang} ${summaryDiff.new.rang != summaryDiff.old.rang
           ? summaryDiff.new.rang > summaryDiff.old.rang
             ? `▲ (#${summaryDiff.old.rang})`
             : `▼ (#${summaryDiff.old.rang})`
           : ""
-        } \n\n` +
+        } <br /><br />` +
         `Moyenne de la promo : ${summaryDiff.new.moy_promo} ${summaryDiff.new.moy_promo != summaryDiff.old.moy_promo
           ? summaryDiff.new.moy_promo > summaryDiff.old.moy_promo
             ? `▲ (${summaryDiff.old.moy_promo})`
             : `▼ (${summaryDiff.old.moy_promo})`
           : ""
-        } \n`;
-        
+        }`;
 
-      sendMail("mail@kewan.fr", subject, text);
+      sendMail("mail@kewan.fr", subject, html);
       
 
       // Message pour toute la classe
@@ -179,7 +178,6 @@ async function watchForNote(DATA_URL = config.DATA_URL) {
     }
   }
 }
-
 
 watchForNote();
 setInterval(() => {
