@@ -127,7 +127,7 @@ async function watchForNote(DATA_URL = config.DATA_URL) {
             ? `▲ (${summaryDiff.old.moy_promo})`
             : `▼ (${summaryDiff.old.moy_promo})`
           : ""
-        }`;
+        } <br/> <br/> Lien du site: <a href="${config.URL_SITE}">${config.URL_SITE}</a>`;
 
       sendMail("mail@kewan.fr", subject, html);
       
