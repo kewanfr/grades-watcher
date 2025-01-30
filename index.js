@@ -24,7 +24,9 @@ if (!fs.existsSync("./data")) {
   fs.mkdirSync("./data");
 }
 
-async function watchForNote(DATA_URL = config.DATA_URL, sendRes = false) {
+async function watchForNote(semestreIndex = config.DEFAULT_SEMESTRE_INDEX, DATA_BASE_URL = config.DATA_URL, sendRes = false) {
+
+  const DATA_URL = DATA_BASE_URL + config.SEMESTRES[semestreIndex].id;
   const data = await fetchData(DATA_URL);
 
 
@@ -188,10 +190,21 @@ async function watchForNote(DATA_URL = config.DATA_URL, sendRes = false) {
   }
 }
 
-watchForNote();
+watchForNote(config.DEFAULT_SEMESTRE_INDEX);
+
+for (let i = 0; i < config.SEMESTRES.length; i++) {
+  console.log(`${config.SEMESTRES[i].name} ${config.SEMESTRES[i].enabled ? "✅ Activé" : "❌ Désactivé"}`);
+}
+
 setInterval(() => {
-  watchForNote();
-  watchForNote(config.DATA_URL2);
+  // watchForNote();
+  // watchForNote(config.DATA_URL2);
+
+  for (let i = 0; i < config.SEMESTRES.length; i++) {
+    if (config.SEMESTRES[i].enabled) {
+      watchForNote(i);
+    }
+  }
 }, config.REFRESH_INTERVAL);
 
 const app = express();
