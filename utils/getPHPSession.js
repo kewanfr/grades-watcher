@@ -22,7 +22,7 @@ export default async function getPHPSession(refresh = false) {
     browserParams = {
       // headless: config.HEADLESS,
       args: ["--no-sandbox"],
-      executablePath: "/usr/bin/chromium-browser",
+      executablePath: "/usr/bin/chromium",
     }
   }
 
