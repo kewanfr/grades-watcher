@@ -10,6 +10,8 @@ export default {
 
     PORT: process.env.PORT || 3000,
 
+    chromium_path: process.env.CHROMIUM_PATH || /snap/bin/chromium,
+
     webhookURL: "",
     DEFAULT_SEMESTRE_INDEX: 1,
     SEMESTRES: [
