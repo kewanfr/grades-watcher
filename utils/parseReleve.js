@@ -22,6 +22,7 @@ export async function parseReleve(dataReleve) {
 
     res.ressources = {}
     res.saes = {}
+    console.log("dataReleve", dataReleve);
     console.log("ressources", dataReleve.ressources);
     console.log("ressources", Object.entries(dataReleve.ressources));
 
