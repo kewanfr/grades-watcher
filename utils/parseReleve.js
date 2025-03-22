@@ -22,33 +22,32 @@ export async function parseReleve(dataReleve) {
 
     res.ressources = {}
     res.saes = {}
-
+    console.log("ressources", dataReleve.ressources);
+    console.log("ressources", Object.entries(dataReleve.ressources));
 
     for (const [key, value] of Object.entries(dataReleve.ressources)) {
+      console.log("ressources", key, value);
 
+      const notes = [];
 
-        const notes = [];
+      for (const [ke, val] of Object.entries(value.evaluations)) {
+        notes.push({
+          id: val.id,
+          description: val.description,
+          note: val.note.value,
+          noteMin: val.note.min,
+          noteMax: val.note.max,
+          moy: val.note.moy,
+          // coef: val.note.coef,
+          poids: val.poids,
+        });
+      }
 
-        for (const [ke, val] of Object.entries(value.evaluations)) {
-
-            notes.push({
-                id: val.id,
-                description: val.description,
-                note: val.note.value,
-                noteMin: val.note.min,
-                noteMax: val.note.max,
-                moy: val.note.moy,
-                // coef: val.note.coef,
-                poids: val.poids,
-            });
-        }
-
-
-        res.ressources[key] = {
-            key: key, 
-            nom: value.titre,
-            notes: notes,
-        }
+      res.ressources[key] = {
+        key: key,
+        nom: value.titre,
+        notes: notes,
+      };
     }
 
 
