@@ -54,7 +54,7 @@ export default {
 
   discord: {
     avatarURL:
-      "https://yt3.googleusercontent.com/RNnAGLlbC2gUCLcMtxzRBeZq2YEchUFvzgPyV8AMkYos-V38ZugWGTglAgLQYqAPXVDj07bliQ=s900-c-k-c0x00ffffff-no-rj",
+      "https://media.discordapp.net/attachments/1356808321855787149/1356808401195241743/WRLUWNE8v0HpPBC3lTeZRcnRtyK_AO7YJ9BHNKESrr2VghLmjxPW8MnrRqUfmP780PyG0UMM5CMs900-c-k-c0x00ffffff-no-rj.png?ex=67ede9cb&is=67ec984b&hm=01f3ae23d5ef042065e086759c6e7a97e4f1de4f47874cee9a46cec90f47d637&=&format=webp&quality=lossless",
     webhookURL: {
       1: process.env.DISCORD_WEBHOOK_URL_1,
       2: process.env.DISCORD_WEBHOOK_URL_2,
