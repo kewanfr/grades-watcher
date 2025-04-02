@@ -1,8 +1,12 @@
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
+dotenv.config({
+  path: ".env",
+  debug: true,
+  override: true,
+});
 
-dotenv.config();
-
+// console.log(process.env);
 export default {
   GMAIL_CODE: process.env.GMAIL_CODE,
   onProduction: process.env.NODE_ENV === "production",
@@ -58,7 +62,6 @@ export default {
     },
   },
 
-  REFRESH_INTERVAL: 1000 * 60 * 50, // 15 minutes (100ms * 60s * 50 min)
+  REFRESH_INTERVAL: 1000 * 60 * 25, // 25 minutes (100ms * 60s * 25 min)
   // REFRESH_INTERVAL: 1000*60*60*2 // 15 minutes (100ms * 60s * 60min * 2h)
 };
-
