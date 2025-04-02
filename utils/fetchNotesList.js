@@ -30,7 +30,9 @@ export default async function fetchNotesList(evaluationId) {
     
         if (data.redirect) {
             PHPSESSID = await getPHPSession(REFRESH_PHPSESSION);
-            return await fetchData();   
+            return await fetchData(
+              URL + config.SEMESTRES[config.DEFAULT_SEMESTRE_INDEX].id
+            ); 
         }
     
         return data;

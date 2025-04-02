@@ -3,10 +3,10 @@ import fs from "fs";
 
 export async function parseReleve(dataReleve) {
   // console.log("dataReleve", JSON.stringify(dataReleve, null, 2));
-  await fs.writeFileSync(
-    "./dataAll.json",
-    JSON.stringify(dataReleve, null, 2)
-  );
+  // await fs.writeFileSync(
+  //   "./dataAll.json",
+  //   JSON.stringify(dataReleve, null, 2)
+  // );
   if (dataReleve["relevé"]) {
     dataReleve = dataReleve["relevé"];
   }

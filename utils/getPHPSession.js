@@ -2,6 +2,10 @@ import puppeteer from "puppeteer";
 import fs from "fs";
 import config from "../config.js";
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export default async function getPHPSession(refresh = false) {
   const path = config.PHPSESSION_FILE;
 
@@ -12,11 +16,13 @@ export default async function getPHPSession(refresh = false) {
 
   if (!refresh && fs.existsSync(path)) {
     const data = JSON.parse(fs.readFileSync(path));
-      
+
     return data.PHPSESSID || false;
   }
 
-  let browserParams = {}
+  let browserParams = {
+    // headless: false,
+  };
 
   if (config.onProduction) {
     browserParams = {
@@ -26,14 +32,15 @@ export default async function getPHPSession(refresh = false) {
       // executablePath: "/usr/bin/chromium-browser",
     };
   }
+  // console.log("Typing login and password...", config);
+  // console.log("Typing login and password...", process.env);
+  // return;
 
   const browser = await puppeteer.launch(browserParams);
   const page = await browser.newPage();
 
   // Navigate to login page
-  await page.goto(
-    config.LOGIN_PAGE_URL
-  );
+  await page.goto(config.LOGIN_PAGE_URL);
 
   // Wait for the page to load.
   await page.waitForSelector('input[name="username"]');
@@ -42,6 +49,9 @@ export default async function getPHPSession(refresh = false) {
   // Type logins
   await page.type('input[name="username"]', config.login.username);
   await page.type('input[name="password"]', config.login.password);
+
+  // await sleep(15000);
+  // await page.waitForTimeout(1000);
 
   // Click button.
   await page.click('button[name="submit"]');
@@ -56,7 +66,7 @@ export default async function getPHPSession(refresh = false) {
 
   await browser.close();
 
-  if(PHPSESSID) {
+  if (PHPSESSID) {
     await fs.writeFileSync(path, JSON.stringify({ PHPSESSID }));
   }
 
