@@ -82,6 +82,7 @@ async function watchForNote(
   // console.log("comparaison", comparaison);
 
   for (let nt of comparaison) {
+    console.log(nt.oldNote, nt.note);
     if (
       nt.oldNote.note == "~" ||
       nt.oldNote.note == "N/A" ||
