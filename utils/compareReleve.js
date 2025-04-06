@@ -39,21 +39,20 @@ export async function compareReleve(releve, oldReleve = null) {
             if (oldNote === note) {
                 continue;
             }
-            console.log(note, oldNote);
 
             
-            if (note.note !== oldNote.note) {
-                // console.log('note différente');
-                // console.log(note, oldNote)
+            if (note.note != oldNote.note) {
+              // console.log('note différente');
+              // console.log(note, oldNote)
 
-                diff.push({
-                    id: note.id,
-                    ressource: R,
-                    nom: releve.ressources[R].nom,
-                    index: N,
-                    note: note,
-                    oldNote: oldNote,
-                });
+              diff.push({
+                id: note.id,
+                ressource: R,
+                nom: releve.ressources[R].nom,
+                index: N,
+                note: note,
+                oldNote: oldNote,
+              });
             }
         }
     }
@@ -73,18 +72,18 @@ export async function compareReleve(releve, oldReleve = null) {
                 continue;
             }
             
-            if (note.note !== oldNote.note) {
-                // console.log('note différente');
-                // console.log(note, oldNote)
+            if (note.note != oldNote.note) {
+              // console.log('note différente');
+              // console.log(note, oldNote)
 
-                diff.push({
-                    id: note.id,
-                    ressource: S,
-                    nom: releve.saes[S].nom,
-                    index: N,
-                    note: note,
-                    oldNote: oldNote,
-                });
+              diff.push({
+                id: note.id,
+                ressource: S,
+                nom: releve.saes[S].nom,
+                index: N,
+                note: note,
+                oldNote: oldNote,
+              });
             }
         }
     }
