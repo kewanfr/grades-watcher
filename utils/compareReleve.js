@@ -40,8 +40,9 @@ export async function compareReleve(releve, oldReleve = null) {
                 continue;
             }
 
-            
-            if (note.note != oldNote.note) {
+            console.log("note", note, "oldNote", oldNote);
+
+            if (node && node.node && note.note != oldNote.note) {
               // console.log('note différente');
               // console.log(note, oldNote)
 
